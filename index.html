@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <!-- TODO: your name -->
+    <title>Your Name</title>
+    <meta name="description" content="Personal homepage of Your Name">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+    <!-- Icons (Font Awesome) used for the Scholar/LinkedIn/GitHub rows -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="dist/css/normalize.css">
+    <link rel="stylesheet" href="dist/css/skeleton.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- TODO (optional): favicon. Use an emoji image URL, or put your own file in the repo and point to it -->
+    <link rel="icon" href="https://images.emojiterra.com/google/android-12l/512px/1f33e.png" type="image/png">
+</head>
+
+<body>
+    <div class="container">
+
+        <section class="header">
+            <!-- TODO: your name -->
+            <h1 class="title">Your Name</h1>
+        </section>
+
+        <div class="value-props row">
+            <div class="one-half column">
+                <!-- TODO: PHOTO - add your picture at images/photo.jpg (or change the path) -->
+                <img class="u-max-full-width" src="images/photo.jpg" alt="Photo of Your Name">
+            </div>
+            <div class="one-half column">
+                <!-- TODO: your title / department / institution -->
+                <h5>
+                    <b>Your Title</b><br />
+                    Department <br />
+                    Institution <br />
+                </h5>
+
+                <!-- TODO: swap in your own URLs; delete a <tr> you don't need, or copy one to add more.
+                     Icon names: https://fontawesome.com/icons (e.g. fab fa-twitter, fas fa-file-pdf) -->
+                <table>
+                    <tr>
+                        <td><i class="fas fa-graduation-cap"></i></td>
+                        <td><a href="https://scholar.google.com/citations?user=XXXX" title="Google Scholar" class="link">Google Scholar</a></td>
+                    </tr>
+                    <tr>
+                        <td><i class="fab fa-linkedin"></i></td>
+                        <td><a href="https://www.linkedin.com/in/yourprofile/" title="LinkedIn" class="link">LinkedIn</a></td>
+                    </tr>
+                    <tr>
+                        <td><i class="fab fa-github"></i></td>
+                        <td><a href="https://github.com/yourusername" title="GitHub" class="link">GitHub</a></td>
+                    </tr>
+                    <tr>
+                        <td><i class="fas fa-file-pdf"></i></td>
+                        <!-- TODO: CV. Hosted: put cv.pdf in the repo root and keep href="cv.pdf".
+                             External: paste a full https:// link (Drive, Dropbox, ...). Delete this row if no CV. -->
+                        <td><a href="cv.pdf" title="CV" class="link">CV</a></td>
+                    </tr>
+                </table>
+
+                <!-- TODO: your email (appears here AND in copyEmail() at the bottom of the page) -->
+                <p>
+                    <button id="email" class="tooltip" title="Click to copy!" onclick="copyEmail()">
+                        <span class="noupper copy-button" style="margin-right: 5%">you@example.com</span><i
+                            class="fa-regular fa-copy" style="font-size: 14px"></i>
+                    </button>
+                </p>
+            </div>
+        </div>
+
+        <!-- TODO: ABOUT - replace with your own text. <br><br> makes a paragraph break. -->
+        <div class="docs-section" id="aboutme">
+            <h6 class="docs-header">About me</h6>
+            <p>
+                Write two or three sentences about who you are, what you work on, and why it matters.
+                <br><br>
+                A second paragraph can cover your background: where you studied, prior roles, and any
+                programs worth mentioning, e.g. <a href="#">a linked program name</a>.
+            </p>
+        </div>
+
+        <!-- TODO: PAPERS - one <ul> block per paper; copy/paste/delete as needed.
+             Links: HOSTED = put the PDF in papers/ and use href="papers/your-paper.pdf"
+                    EXTERNAL = paste a full https:// URL (arXiv, SSRN, journal, Drive...)
+             Keep only the link lines you need. Remove <details> if you have no abstract. -->
+        <div class="docs-section" id="media">
+            <h6 class="docs-header">Research Papers</h6>
+
+            <ul>
+                <p class="title">Title of Your Paper (2026)</p>
+                <p class="authors">Your Name and <a href="#">Coauthor Name</a>.</p>
+                <a href="papers/your-paper.pdf" target="_blank">[pdf]</a>&nbsp;
+                <a href="https://arxiv.org/abs/xxxx.xxxxx" target="_blank">[arXiv]</a>
+                <details>
+                    <summary>abstract</summary>
+                    Paste your abstract here.
+                </details>
+            </ul>
+
+            <ul>
+                <p class="title">Title of Another Paper (2025)</p>
+                <p class="authors">Your Name.</p>
+                <a href="https://example.com/link-to-paper" target="_blank">[preprint]</a>
+                <details>
+                    <summary>abstract</summary>
+                    Another abstract goes here.
+                </details>
+            </ul>
+        </div>
+
+        <!-- TODO: SOFTWARE - optional. Delete this whole section if not applicable. -->
+        <div class="docs-section" id="software">
+            <h6 class="docs-header">Software</h6>
+            <ul>
+                <code>packagename</code> Short description (R/Python package).<br />
+                <a href="https://github.com/yourusername/packagename">[github]</a>
+            </ul>
+        </div>
+
+        <!-- TODO: TEACHING - one <ul> per course, or delete the section. -->
+        <div class="docs-section" id="teaching">
+            <h6 class="docs-header">Teaching</h6>
+            <ul>
+                Course Name (Undergraduate) - Institution, Course Number <br />
+                Instructor. Term Year. <br />
+            </ul>
+            <ul>
+                Another Course (Graduate) - Institution <br />
+                Teaching Assistant, with Professor Name. Term Year. <br />
+            </ul>
+        </div>
+
+        <div class="row" style="margin-bottom:5%"></div>
+
+        <script>
+            function copyEmail() {
+                // TODO: same email as in the button above
+                const email = "you@example.com";
+                const tempInput = document.createElement("input");
+                tempInput.value = email;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                tempInput.setSelectionRange(0, 99999);
+                document.execCommand("copy");
+                document.body.removeChild(tempInput);
+
+                const button = document.querySelector(".copy-button");
+                const originalText = button.innerHTML;
+                button.style.width = button.offsetWidth + 'px';
+                button.innerHTML = "Copied!";
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.style.width = '';
+                }, 1000);
+            }
+        </script>
+    </div>
+</body>
+
+</html>
